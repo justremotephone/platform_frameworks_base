@@ -5995,8 +5995,9 @@ public class WindowManagerService extends IWindowManager.Stub
 
     @Override
     public void setShelfHeight(boolean visible, int shelfHeight) {
-        mAmInternal.enforceCallerIsRecentsOrHasPermission(android.Manifest.permission.STATUS_BAR,
-                "setShelfHeight()");
+      //NexusLauncher does not request android.Manifest.permission.STATUS_BAR but needs it on our JF9 branch!?)
+      //  mAmInternal.enforceCallerIsRecentsOrHasPermission(android.Manifest.permission.STATUS_BAR,
+      //          "setShelfHeight()");
         synchronized (mWindowMap) {
             getDefaultDisplayContentLocked().getPinnedStackController().setAdjustedForShelf(visible,
                     shelfHeight);
